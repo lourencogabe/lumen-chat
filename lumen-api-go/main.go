@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println("Lumen Chat v0.01")
+	route := gin.Default()
+
+	route.GET("/lumen-chat/get/", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, gin.H{
+			"message": "Lumen Chat v0.01",
+		})
+	})
+
+	route.Run(":7070")
 }
