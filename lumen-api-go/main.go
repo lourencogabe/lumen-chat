@@ -4,7 +4,16 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 )
+
+var upgrader = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
+
+	//Permite requisições de qualquer origem
+	CheckOrigin: func(r *http.Request) bool { return true },
+}
 
 func main() {
 	route := gin.Default()
