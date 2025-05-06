@@ -20,9 +20,10 @@ function connect(): any {
       };
 }
 
-function sendMenssage(msg): any {
+function sendMenssage(msg:string): string {
     console.log("Enviando mensagem: ", msg);
     socket.send(msg);
+    return ''
 }
 
 export{ connect, sendMenssage }
