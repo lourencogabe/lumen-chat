@@ -1,20 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import {connect, sendMenssage} from './api/send-service'
+import Header from './components/header/header'
 
 function App() {
-  connect()
+  React.useEffect(() => {
+    connect();
+  }, []);
 
   function send(): any{
     console.log("hello");
     sendMenssage("hello");
-  }
-
-  return (
-    <div className="App">
-    <button onClick={send}>Hit</button>
-  </div>
-  );
+  } 
+    return (
+      <div className="App">
+        <Header />
+        <button onClick={send}>Hit</button>
+      </div>
+    );
 }
 
 export default App;
