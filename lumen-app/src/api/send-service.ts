@@ -1,6 +1,8 @@
+import ChatHystory from "../components/chat-history/chat-history"
+
 const socket = new WebSocket("ws://localhost:7070/lumen-chat/web-socket")
 
-function connect(): any {
+function connect(cb: (msg: MessageEvent) => void): void{
     console.log("Aguardando conexão...")
 
     socket.onopen = () => { 
@@ -8,7 +10,7 @@ function connect(): any {
     }
 
     socket.onmessage = msg => {
-        console.log(msg)
+        cb(msg)
     }
 
     socket.onclose = event => {

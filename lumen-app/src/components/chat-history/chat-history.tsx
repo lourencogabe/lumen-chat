@@ -10,7 +10,6 @@ interface ChatHistory{
     chatHistory: Message[]
 }
 
-
 function ChatHystory({chatHistory}: ChatHistory) {
     return(
         <div className="ChatHistory">
@@ -24,4 +23,4 @@ function ChatHystory({chatHistory}: ChatHistory) {
     )
 }
 
-export default ChatHistory;
+export default ChatHystory;
