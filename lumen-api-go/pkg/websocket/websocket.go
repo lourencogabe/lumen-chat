@@ -52,15 +52,15 @@ var upgrader = websocket.Upgrader{
 }
 
 // Handler que realiza o upgrade da conexão HTTP para WebSocket e inicia o leitor de mensagens.
-func WebSocketHandler(ctx *gin.Context) {
+func WebSocketHandler(ctx *gin.Context) (*websocket.Conn, error) {
 	// Realiza o upgrade da conexão HTTP para WebSocket
-	ws, err := upgrader.Upgrade(ctx.Writer, ctx.Request, nil)
+	conn, err := upgrader.Upgrade(ctx.Writer, ctx.Request, nil)
 
 	if err != nil {
 		log.Println(err)
 	}
-	// Chamada do leitor de mensagens
-	ReaderMsg(ws)
+	// Retorna a conexão
+	return conn, nil
 }
 
 // Le a mensagem recebida.
