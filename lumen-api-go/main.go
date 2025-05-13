@@ -1,27 +1,15 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	pkg "github.com/lourencogabe/lumen-chat/pkg/websocket"
 )
-
-// Handler que realiza o upgrade da conexão HTTP para WebSocket e inicia o leitor de mensagens.
-func websocketHandler(ctx *gin.Context) {
-	// Realiza o upgrade da conexão HTTP para WebSocket
-	ws, err := upgrader.Upgrade(ctx.Writer, ctx.Request, nil)
-
-	if err != nil {
-		log.Println(err)
-	}
-	// Chamada do leitor de mensagens
-	reader(ws)
-}
 
 // Configura rota para o handler websocketHandler
 func setupRoutes(router *gin.Engine) {
-	router.GET("/lumen-chat/web-socket", websocketHandler)
+	router.GET("/lumen-chat/web-socket", pkg.WebSocketHandler)
 }
 
 func main() {

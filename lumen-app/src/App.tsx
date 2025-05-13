@@ -13,7 +13,7 @@ function App() {
 
   function send():void{
     console.log("Mensagem enviada!")
-    sendMenssage("Olá, teste!")
+    sendMenssage("Olá, teste")
   }
 
     return (
@@ -21,7 +21,9 @@ function App() {
         <Header />
       <div>
         {chatHistory.map((msg, index) => (
-          <div key={index}>{msg.data}</div>
+          <div key={index}>
+            {typeof msg.data === "string" ? msg.data : JSON.stringify(msg.data)}
+          </div>
         ))}
       </div>
       <button onClick={send}>Hit</button>
