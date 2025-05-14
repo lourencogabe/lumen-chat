@@ -1,4 +1,4 @@
-package pkg
+package websocket
 
 import (
 	"fmt"
@@ -51,7 +51,7 @@ var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool { return true },
 }
 
-// Handler que realiza o upgrade da conexão HTTP para WebSocket e inicia o leitor de mensagens.
+// Handler que realiza o upgrade da conexão HTTP para WebSocket.
 func WebSocketHandler(ctx *gin.Context) (*websocket.Conn, error) {
 	// Realiza o upgrade da conexão HTTP para WebSocket
 	conn, err := upgrader.Upgrade(ctx.Writer, ctx.Request, nil)
