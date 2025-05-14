@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {connect, sendMenssage} from './api/send-service'
 import Header from './components/header/header'
+import ChatInput from './components/chat-imput/chat-input';
 
 function App() {
   const [chatHistory, setChatHistory] = useState<any[]>([]);
@@ -11,7 +12,12 @@ function App() {
     })
   }, []);
 
-  function send():void{
+  function send(event: React.KeyboardEvent<HTMLInputElement>){
+    if(event.key === 'Enter'){
+      sendMenssage(event.currentTarget.value)
+      event.currentTarget.value = ''
+    }
+
     console.log("Mensagem enviada!")
     sendMenssage("Olá, teste")
   }
@@ -19,6 +25,7 @@ function App() {
     return (
       <div className="App">
         <Header />
+        <ChatInput send={send}/>
       <div>
         {chatHistory.map((msg, index) => (
           <div key={index}>
