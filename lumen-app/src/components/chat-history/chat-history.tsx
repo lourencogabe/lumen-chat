@@ -1,4 +1,4 @@
-import "./chat-history.scss"
+import "/Users/gabriel_lourenco/Documents/codigos/lumen-chat/lumen-app/src/components/chat-history/chat-history.scss"
 
 //tipo do dado
 interface Message{

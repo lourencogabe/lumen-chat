@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./chat-input.scss"
+import "./ChatInput.scss"
 
 function ChatInput(e: any){
     const [valor, setValor] =useState('')
@@ -9,7 +9,7 @@ function ChatInput(e: any){
     }
 
     return (
-        <div>
+        <div className="ChatInput">
             <input type="text" value={valor} onChange={handleChange} />
         </div>
     )

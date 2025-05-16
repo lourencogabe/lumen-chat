@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {connect, sendMenssage} from './api/send-service'
 import Header from './components/header/header'
-import ChatInput from './components/chat-imput/chat-input';
+import ChatInput from './components/chat-imput/ChatInput';
 
 function App() {
   const [chatHistory, setChatHistory] = useState<any[]>([]);
@@ -33,7 +33,7 @@ function App() {
           </div>
         ))}
       </div>
-      <button onClick={send}>Hit</button>
+      
     </div>
   )
 }
