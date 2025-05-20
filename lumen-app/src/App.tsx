@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {connect, sendMenssage} from './api/send-service'
-import Header from './components/header/header'
-import ChatInput from './components/chat-imput/ChatInput';
+import ChatInput from './components/ChatImput/ChatInput';
+import Header from './components/header/Header';
 
 function App() {
   const [chatHistory, setChatHistory] = useState<any[]>([]);

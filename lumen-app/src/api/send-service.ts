@@ -1,4 +1,4 @@
-import ChatHystory from "../components/chat-history/chat-history"
+import ChatHystory from "../components/ChatHistory/ChatHistory"
 
 const socket = new WebSocket("ws://localhost:7070/lumen-chat/web-socket")
 
